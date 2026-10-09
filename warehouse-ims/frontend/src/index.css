@@ -1,0 +1,82 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root,
+:root.dark {
+  --color-bg: 26 26 26;
+  --color-sidebar: 32 32 32;
+  --color-card: 37 37 37;
+  --color-primary: 184 115 51;
+  --color-primary-hover: 210 139 71;
+  --color-text: 245 245 245;
+  --color-text-secondary: 163 163 163;
+  --color-overlay: 255 255 255;
+  --color-border-subtle: 255 255 255;
+  --overlay-opacity: 0.05;
+  --border-opacity: 0.08;
+  color-scheme: dark;
+}
+
+:root.light {
+  --color-bg: 246 243 238;
+  --color-sidebar: 255 255 255;
+  --color-card: 255 255 255;
+  --color-primary: 184 115 51;
+  --color-primary-hover: 166 98 40;
+  --color-text: 26 22 18;
+  --color-text-secondary: 110 100 92;
+  --color-overlay: 26 22 18;
+  --color-border-subtle: 26 22 18;
+  --overlay-opacity: 0.04;
+  --border-opacity: 0.09;
+  color-scheme: light;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    font-family: "Inter", system-ui, sans-serif;
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+  h1, h2, h3, h4 {
+    font-family: "Sora", system-ui, sans-serif;
+  }
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: rgb(var(--color-bg));
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgb(var(--color-text-secondary) / 0.3);
+    border-radius: 8px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgb(var(--color-primary));
+  }
+}
+
+@layer utilities {
+  .bg-overlay {
+    background-color: rgb(var(--color-overlay) / var(--overlay-opacity));
+  }
+  .border-subtle {
+    border-color: rgb(var(--color-border-subtle) / var(--border-opacity));
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-card/90 backdrop-blur-sm border border-subtle rounded-2xl shadow-soft;
+  }
+  .btn-primary {
+    @apply bg-primary hover:bg-primary-hover text-white font-medium rounded-xl px-5 py-2.5 transition-colors duration-200 shadow-glow;
+  }
+  .input-field {
+    @apply w-full bg-background border border-subtle rounded-xl px-4 py-2.5 text-text placeholder:text-text-secondary focus:outline-none focus:ring-2 focus:ring-primary/60 transition;
+  }
+}

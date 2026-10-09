@@ -1,0 +1,22 @@
+Flask==3.0.3
+Flask-SQLAlchemy==3.1.1
+Flask-Bcrypt==1.0.1
+Flask-JWT-Extended==4.6.0
+Flask-CORS==4.0.1
+Flask-SocketIO==5.3.6
+python-socketio==5.11.2
+python-dotenv==1.0.1
+PyMySQL==1.1.1
+cryptography==42.0.8
+email-validator==2.1.1
+qrcode==7.4.2
+python-barcode==0.15.1
+Pillow==10.3.0
+reportlab==4.2.0
+openpyxl==3.1.5
+requests==2.32.3
+gunicorn==22.0.0
+eventlet==0.36.1
+google-auth==2.32.0
+razorpay==1.4.2
+setuptools<81  # razorpay depends on pkg_resources, which newer setuptools no longer bundles
